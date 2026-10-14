@@ -18,12 +18,15 @@
 
 ## 代码仓库与发布
 
-代码仓库：https://gitee.com/MyLiz/he-lishas-personal-website
+公开网站：https://lisahe0607-nora.github.io/he-lishas-personal-website/
+
+GitHub托管仓库：https://github.com/lisahe0607-nora/he-lishas-personal-website
+
+Gitee代码副本：https://gitee.com/MyLiz/he-lishas-personal-website
 
 网站文件位于仓库根目录，默认分支为 `master`。无需构建，静态托管的发布目录直接使用仓库根目录。
 
-如后续使用 GitHub Pages，可将网站代码同步到相应 GitHub 仓库，在 Settings → Pages 中选择实际分支和 `/ (root)`。`.nojekyll` 已包含，页面兼容仓库子路径。
-其他静态托管服务同样可直接使用这些 HTML、CSS、JavaScript 和图片文件。
+当前已启用 GitHub Pages，发布源为 `master` 分支的 `/ (root)`。`.nojekyll` 已包含，页面兼容仓库子路径。GitHub托管仓库更新后自动重新发布；Gitee副本需另行同步。
 
 Gitee 仓库地址用于管理和查看代码。面试官浏览网站需要静态托管服务发布后的网页地址。
 
@@ -34,6 +37,7 @@ Gitee 仓库地址用于管理和查看代码。面试官浏览网站需要静�
 - 简历：编辑 `resume.html`。
 - 界面图片：替换 `assets` 中的对应文件。
 - 样式和交互：`styles.css`、`app.js`。
+- 案例流程、产品结构和决策表：对应案例HTML及 `visuals.css`；健康产品触点支持点击与键盘切换，交互位于 `app.js`。
 
 原型链接保留用户提供的 Figma 与 MasterGo 文件地址，源平台的分享可见性由文件所有者管理。网站内的案例正文与图片可直接浏览。
-本地网站已连接上述 Gitee 仓库；网站的线上访问地址以静态托管平台实际发布结果为准。
+本地 `origin` 指向Gitee副本，`github` 指向GitHub托管仓库。案例中的图示表达产品设计与协作关系，原型交付、模拟展示和真实设备验证保持各自的状态与证据说明。

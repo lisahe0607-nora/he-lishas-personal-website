@@ -25,3 +25,28 @@ document.querySelector('[data-copy-email]')?.addEventListener('click',async func
   try { await navigator.clipboard.writeText(address); this.textContent='邮箱已复制'; }
   catch { this.textContent=address; }
 });
+
+// Product-touchpoint diagrams: mouse, touch, and keyboard share one tab state.
+document.querySelectorAll('[data-product-tabs]').forEach(group => {
+  const tabs = [...group.querySelectorAll('[role="tab"]')];
+  const activate = index => {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+    });
+  };
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(index));
+    tab.addEventListener('keydown', event => {
+      const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
+      if (!keys.includes(event.key)) return;
+      event.preventDefault();
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1
+        : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+      activate(next);
+      tabs[next].focus();
+    });
+  });
+});
